@@ -1,0 +1,73 @@
+
+<h3>Live Matches</h3>
+
+<table *ngIf="liveMatches" class="table table-bordered">
+    <tr>
+        <th>S.NO</th>
+        <th>Date&Time</th>
+        <th>Team 1</th>
+        <th>Team 2</th>
+        <th>Match Type</th>
+        <th>Started/Not</th>
+    </tr>
+    <tbody *ngFor="let match of liveMatches;let i = index">
+        <tr>
+            <td>{{i+1}}</td>
+            <td>{{match.dateTimeGMT}}</td>
+            <td>{{match['team-1']}}</td>
+            <td>{{match['team-2']}}</td>
+            <td>{{match.type}}</td>
+            <td>{{match.matchStarted}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+<hr>
+<h3>Present india match</h3>
+<table *ngIf="indiaMatches" class="table table-bordered">
+    <tr>
+        <th>S.NO</th>
+        <th>Date&Time</th>
+        <th>Team 1</th>
+        <th>Team 2</th>
+        <th>Match Type</th>
+        <th>Started/Not</th>
+    </tr>
+    <tbody *ngFor="let match of indiaMatches;let i = index">
+        <tr>
+            <td>{{i+1}}</td>
+            <td>{{match.dateTimeGMT}}</td>
+            <td>{{match['team-1']}}</td>
+            <td>{{match['team-2']}}</td>
+            <td>{{match.type}}</td>
+            <td *ngIf="match.matchStarted"><button (click)="getliveScores(match)">Get Scores</button></td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<div>
+    {{currentScore}}
+</div>
+<hr>
+<h3>Future india matches</h3>
+<table *ngIf="futureIndiaMatches" class="table table-bordered">
+    <tr>
+        <th>S.NO</th>
+        <th>Date&Time</th>
+        <th>Team 1</th>
+        <th>Team 2</th>
+        <th>Match Type</th>
+        <th>Started/Not</th>
+    </tr>
+    <tbody *ngFor="let match of futureIndiaMatches;let i = index">
+        <tr>
+            <td>{{i+1}}</td>
+            <td>{{match.dateTimeGMT}}</td>
+            <td>{{match['team-1']}}</td>
+            <td>{{match['team-2']}}</td>
+            <td>{{match.type}}</td>
+            <td>{{match.matchStarted}}</td>
+        </tr>
+    </tbody>
+</table>
